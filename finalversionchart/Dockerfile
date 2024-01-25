@@ -4,7 +4,7 @@ FROM tomcat:9.0.20
 RUN apt-get update && apt-get install -y curl docker.io
 
 
-RUN mkdir -p /var/lib/jenkins/workspace/repo1
+RUN mkdir -p /var/lib/jenkins/workspace/finaltry
 # Install Helm
 RUN curl -fsSL -o /tmp/get_helm.sh https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 \
     && chmod +x /tmp/get_helm.sh \
@@ -12,10 +12,10 @@ RUN curl -fsSL -o /tmp/get_helm.sh https://raw.githubusercontent.com/helm/helm/m
     && rm /tmp/get_helm.sh
 
 # Copy the Helm chart into the container
-COPY . /var/lib/jenkins/workspace/repo1
+COPY . /var/lib/jenkins/workspace/finaltry
 
 # Set the working directory to the location of the Helm chart
-WORKDIR /var/lib/jenkins/workspace/repo1
+WORKDIR /var/lib/jenkins/workspace/finaltry
 
 # Define default command to run when the container starts
 CMD ["catalina.sh", "run"]
